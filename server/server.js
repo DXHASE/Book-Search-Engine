@@ -28,6 +28,7 @@ const startApolloServer = async(typeDefs, resolvers) => {
   server.applyMiddleware({ app })
 
   db.once('open',()=>{
+    const PORT = process.env.PORT || 3001;
     app.listen(PORT, () => {
       console.log(`API server running on ${PORT}!`)
       console.log(`Use GraphQl at http://localhost:${PORT}${server.graphqlPath}`);
